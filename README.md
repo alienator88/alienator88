@@ -9,7 +9,7 @@
 
 - 🌱 I’m currently learning **SwiftUI**
 
-- 👨‍💻 All of my projects are available at [https://itsalin.ml/projects.html](https://itsalin.ml/projects.html)
+- 👨‍💻 All of my projects are available at [https://itsalin.com/projects.html](https://itsalin.com/projects.html)
 
 - 📄 Know about my experiences [https://www.linkedin.com/in/alinlupascu/](https://www.linkedin.com/in/alinlupascu/)
 
