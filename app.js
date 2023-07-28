@@ -1,3 +1,7 @@
+window.onload = function() {
+  var context = new AudioContext();
+}
+
 const endpoint = `https://api.github.com/users/alienator88/repos`;
 
 const getRepos = (repos) => {
