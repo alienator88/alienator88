@@ -52,4 +52,4 @@ const fetchData = () => {
 }
 
 
-fetchData();
+// fetchData();
