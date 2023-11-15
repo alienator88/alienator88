@@ -7,4 +7,4 @@
 
 - 🌱 I’m currently in the process of learning **SwiftUI** ☝🏻
 
-- 👨‍💻 All of my projects are available at [https://itsalin.com/projects.html](https://itsalin.com/projects.html)
+- 👨‍💻 My portfolio is available at [https://itsalin.com/](https://itsalin.com/)
