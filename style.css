@@ -1,122 +1,265 @@
-:root {
-    font-size: 16px;
-}
-
-body {
+html, body {
+    height: 100%; /* Ensure the html and body are full height */
     margin: 0;
-    display: flex;
-    justify-content: center;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000317; /* Dark blue/purple background */
+    color: white;
+    display: flex; /* New */
+    flex-direction: column; /* New */
     align-items: center;
-    height: 100vh;
 }
 
-.container {
-    width: 100%;
-    max-width: 80%;
-    margin: 0 auto;
+body > footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+main {
+    flex: 1; /* Allows the main content to grow and fill the available space */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates 2 columns of equal width */
+    gap: 40px; /* Adjusts the gap between grid items */
+    margin-top: 20px; /* Space above the grid, adjust as needed */
+}
+
+.column {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
-    height: 100%; /* Take up full height of the viewport */
+    gap: 20px; /* Space between items in the same column */
 }
 
-.hero {
+.item {
     display: flex;
     align-items: center;
-    padding-top: 5rem;
-    /* Add any additional styles for .hero if needed */
+    background-color: #000210; /* Example background color */
+    padding: 20px; /* Increased padding between content and border */
+    border: 1px solid #dddddd1c; /* Example border color */
+    border-radius: 16px; /* Rounded corners */
+    gap: 20px; /* Space between the image and the text content */
+    transition: box-shadow 0.5s ease-in-out; /* Smooth transition for the shadow effect */
+    width: 550px; /* Specific width */
+    height: 200px; /* Specific height */
+    overflow: hidden; 
 }
 
+.item:hover {
+    box-shadow: 0 8px 15px #5d76e577; /* Blue shadow on hover */
+    cursor: pointer;
+}
 
-.avatar {
-    width: 100px; /* Adjust the width as needed */
+.item-image {
+    width: 100px; /* Adjust based on your preference */
     height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Adjust spacing between image and text */
-    /* border-radius: 50%;
-    overflow: hidden; */
+    border-radius: 5px; /* Optionally round the corners of the image */
 }
 
-
-.introText {
-    color: rgb(0, 0, 0);
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
-    line-height: 1.8rem;
-    flex: 1;
-    text-align: justify;
-    text-justify: auto;
+.item-content {
+    display: flex;
+    flex-direction: column;
 }
 
-.project-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; /* Adjust the gap between items */
-    margin-top: 5rem; /* Adjust the margin as needed */
+.item-title {
+    margin: 0;
+    font-size: 1.5em; /* Large title size */
 }
 
-.project-item {
-    border-radius: 10px; /* Adjust border-radius for rounded corners */
-    overflow: hidden; /* Ensure rounded corners clip the content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
-    text-decoration: none; /* Remove underline from links */
-    color: black; /* Set the text color for links */
-    background-color: rgb(255, 255, 255);
+.item-description {
+    font-size: 0.9em; /* Smaller text for the description */
+    color: #666; /* Example color for the description text */
 }
 
-.project-item:hover {
-    transform: scale(1.05); /* Enlarge slightly on hover */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 1000; /* High z-index to keep it above other content */
+    transition: background-color 0.5s ease;
+    backdrop-filter: blur(10px); /* Create the blur effect */
+    background-color: #0003178f; /* Translucent background; adjust as needed */
 }
 
-.project-item img {
-    width: 100%; /* Make the image fill the container */
-    height: 250px; /* Set a fixed height for consistency */
-    object-fit: contain; /* Maintain aspect ratio and cover the container */
+.logo {
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
 }
 
-.project-details {
-    padding: 10px;
-    background-color: transparent; /* Background color for the rounded rectangle */
-     /* Limit the width of the details container */
-    margin-top: auto; /* Push details to the bottom of the container */
+.underline {
+    text-decoration: underline;
+    text-decoration-color: #ab5dbb; 
+    text-decoration-thickness: 2px;
+    text-decoration-style: solid;
 }
 
-.project-language {
-    font-size: 10px;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #ff3d23;
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    /* align-items: center; */
 }
 
-.project-title {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
+nav ul li {
+    margin: 10px;
+    margin-right: 20px;
 }
 
-.project-description {
-    font-size: 14px;
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.profile {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically if needed */
+    width: 100%; /* Ensures the profile section takes full width */
+    flex-direction: column;
+    padding-top: 10rem;
+}
+
+.apps-container {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically if needed */
+    width: 100%; /* Ensures the profile section takes full width */
+    flex-direction: column;
+    padding-top: 5rem;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit:cover;
+    object-position: center 25%;
+    /* border: 4px solid white; */
+}
+
+h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #5d76e5, #ab5dbb, #5d76e5);
+    background-size: 200% 200%; /* Extend the background to allow for the movement */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease-in-out infinite; /* Apply the animation */
+    margin: 10px 0;
     margin-bottom: 10px;
 }
 
-
-.h3Span {
-    color: #ff3d23;
+.awesome {
+    font-size: 2rem;
+    margin: 10px 0;
 }
 
-.socials {
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.role {
+    color: #828fa5;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.about {
+    color: #828fa5;
+    font-size: 1.2rem;
+    margin: 10px;
+}
+
+.apps-title-container {
     display: flex;
-    margin-top: 6vh;
+    align-items: center; /* Adjust vertical alignment if needed */
+    gap: 10px;
 }
 
-.sm-link+.sm-link {
-    margin-left: 1em;
-}
 
-.sm-link {
-    text-decoration: none;
-    color: #000000;
-    font-family: 'Poppins', sans-serif;
+.button, #apps, #code, #download_url, #repo_url { /* Targeting IDs directly */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
     font-size: 1rem;
-    line-height: 1rem;
+    text-decoration: none; 
+    color: white; 
+    gap: 5px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+    gap: 0px; /* Adjusts space between buttons */
+    flex-wrap: wrap; /* Ensures buttons wrap on smaller screens */
+    margin-top: 10px; /* Adds some space above the buttons */
+}
+
+#apps, #download_url {
+    background-color: #4d62bd; /* Blue */
+}
+
+#code, #repo_url {
+    background-color: #364051; /* Lighter blue/purple */
+}
+
+.app-detail {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers children horizontally in the container */
+    justify-content: center; /* Centers the container's total content vertically if needed */
+    text-align: center; /* Centers text within each child */
+    width: 100%; /* Take the full width of the parent container */
+    padding: 20px; /* Optional: Adds some padding inside the container */
+    margin-top: 5rem;
+}
+
+.appImage {
+    max-width: 10rem; /* Ensures the image is responsive and doesn't overflow its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    border-radius: 10px; /* Optional: Rounds the corners of the image */
+    margin-bottom: 20px; /* Adds space between the image and the title */
+}
+
+.screenshot {
+    max-width: 80%; /* Ensures the image is responsive and doesn't overflow its container */
+    height: auto; /* Maintains the aspect ratio of the image */
+    border-radius: 10px; /* Optional: Rounds the corners of the image */
+    margin-bottom: 20px; /* Adds space between the image and the title */
+}
+
+
+footer {
+    text-align: center;
+    padding: 20px;
+}
+
+footer hr {
+    margin-bottom: 20px;
+    border-color: #364051;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: #364051;
+    font-size: 1.5rem;
 }

@@ -1,55 +1,34 @@
-window.onload = function() {
-  var context = new AudioContext();
-}
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('appslist.json')
+      .then(response => response.json())
+      .then(apps => {
+        const appGrid = document.getElementById('appGrid');
+        apps.forEach((app, index) => {
+          const columnClass = index % 2 === 0 ? 'column left-column' : 'column right-column'; // Alternate column class
+          const column = document.querySelector(`.${columnClass}`) || document.createElement('div');
+          column.className = columnClass;
+  
+          const item = document.createElement('div');
+          item.className = 'item';
+          item.innerHTML = `
+            <img src="${app.image}" alt="${app.title}" class="item-image">
+            <div class="item-content">
+              <h2 class="item-title">${app.title}</h2>
+              <p class="item-description">${app.description}</p>
+            </div>
+          `;
+          
+          if (!document.querySelector(`.${columnClass}`)) {
+            appGrid.appendChild(column);
+          }
+          column.appendChild(item);
 
-const endpoint = `https://api.github.com/users/alienator88/repos`;
-
-const getRepos = (repos) => {
-
-    const newRepos =
-        repos
-            .sort(
-                (a, b) => Number(new Date(b.updated_at)) - Number(new Date(a.updated_at))
-            )
-            .slice(0, 2);
-
-    const [
-        {
-            name: firstRepoName,
-            html_url: firstRepoURL,
-            description: firstRepoDescription
-        },
-        {
-            name: secondRepoName,
-            html_url: secondRepoURL,
-            description: secondRepoDescription
-        }
-    ] = newRepos;
-
-   document.querySelector(".repos").innerHTML = 
-   `
- 
-   <div class="repoCard">
-   <a class = "repoLink" target="_blank" rel="noopener noreferrer" href="${firstRepoURL}">${firstRepoName}</a>
-   <div class="repoDesc">${firstRepoDescription}</div>
-   </div>
-   <div class="repoCard">
-   <a class = "repoLink" target="_blank" rel="noopener noreferrer" href="${secondRepoURL}">${secondRepoName}</a>
-   <div class="repoDesc">${secondRepoDescription}</div>
-   </div> 
-
-   `
-
-
-}
-
-const fetchData = () => {
-
-    fetch(endpoint)
-        .then(res => res.json())
-        .then(data => getRepos(data));
-
-}
-
-
-// fetchData();
+          // Make the item clickable and pass the ID to app.html
+          item.addEventListener('click', () => {
+            window.location.href = `appInfo.html?id=${app.id}`;
+          });
+        });
+      })
+      .catch(error => console.error('Error loading the apps data:', error));
+  });
+  

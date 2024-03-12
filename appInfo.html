@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alin Lupascu</title>
+    <title>App Info - Alin Lupascu</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -11,11 +11,11 @@
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
 <body>
-    <header>
-        <div class="logo">🚀</div>
+    <header class="blurry-background">
+        <a href="index.html" class="logo">Alin Lupascu</a>
         <nav>
             <ul>
-                <li><a href="apps.html">Apps</a></li>
+                <li><a href="apps.html" class="underline">Apps</a></li>
                 <!-- <li><a href="donate.html">Donate</a></li> -->
                 <li><a href="about.html">About</a></li>
                 <li><a href="mailto:dev@itsalin.com"><i class="fas fa-envelope" style="margin-top: 5px;"></i></a></li>
@@ -23,22 +23,36 @@
         </nav>
     </header>
     <main>
-        <section class="profile">
-            <img src="Resources/me.JPG" alt="Profile Picture" class="profile-pic">
-            <h1>Alin Lupascu</h1>
-            <p class="role">Open-Source Developer</p>
-            <div class="buttons">
-                <a href="apps.html" class="button" id="apps"><i class="fab fa-app-store"></i> Apps</a>
-                <a href="https://github.com/alienator88" class="button" id="code"><i class="fab fa-github"></i> GitHub</a>
+        <!-- <section class="apps-container">
+            <div class="apps-title-container">
+                <span class="awesome">..</span>
+                <h1>apps</h1>
             </div>
-            
-        </section>
+        </section> -->
+
+        <div class="app-detail">
+            <img src="" id="appImage" class="appImage">
+            <h1 id="appTitle"></h1>
+            <p id="appDescription"></p>
+            <div class="buttons">
+                <a href="" class="button" id="download_url"><i class="fas fa-download"></i> Download</a>
+                <a href="" class="button" id="repo_url"><i class="fab fa-github"></i> Repo</a>
+            </div>
+            <p></p>
+            <p></p>
+            <img src="" id="screenshot1" class="screenshot">
+            <img src="" id="screenshot2" class="screenshot">
+          </div>
+
+
     </main>
     <!-- <footer>
         <hr>
         <div class="social-links">
+            <a href="https://github.com/alienator88"><i class="fab fa-github"></i></a>
             <a href="mailto:dev@itsalin.com"><i class="fas fa-envelope"></i></a>
         </div>
     </footer> -->
 </body>
+<script src="appInfo.js"></script>
 </html>

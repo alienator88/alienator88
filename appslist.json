@@ -1,0 +1,46 @@
+[
+    {
+      "id": 1,
+      "title": "Pearcleaner",
+      "description": "Open-source mac app cleaner inspired by Freemacsoft's AppCleaner and Sun Knudsen's Privacy Guides.",
+      "image": "Resources/pearIcon.png",
+      "screenshot1": "Resources/pear1.png",
+      "screenshot2": "Resources/pear2.png",
+      "download_url": "https://github.com/alienator88/Pearcleaner/releases",
+      "repo_url": "https://github.com/alienator88/Pearcleaner"
+
+    },
+    {
+      "id": 2,
+      "title": "Sentinel",
+      "description": "A GUI for controlling Gatekeeper, unquarantining apps and more.",
+      "image": "Resources/sentinelIcon.png",
+      "screenshot1": "Resources/sentinel1.png",
+      "screenshot2": "Resources/sentinel2.png",
+      "download_url": "https://github.com/alienator88/Sentinel/releases",
+      "repo_url": "https://github.com/alienator88/Sentinel"
+
+    },
+    {
+      "id": 3,
+      "title": "McBrew",
+      "description": "A fast GUI for managing homebrew formulae, casks and taps.",
+      "image": "Resources/mcbrewIcon.png",
+      "screenshot1": "Resources/mcbrew1.png",
+      "screenshot2": "Resources/mcbrew2.png",
+      "download_url": "https://github.com/alienator88/McBrew/releases",
+      "repo_url": "https://github.com/alienator88/McBrew"
+
+    },
+    {
+      "id": 4,
+      "title": "Hackintosh",
+      "description": "Asus TUF Z390M-Pro Gaming (Wifi) - OpenCore Configuration.",
+      "image": "Resources/hackintoshIcon.png",
+      "screenshot1": "Resources/hackintosh1.png",
+      "screenshot2": "",
+      "download_url": "https://github.com/alienator88/ASUS-TUF-Z390M-Pro-Gaming-Hackintosh-OpenCore/releases",
+      "repo_url": "https://github.com/alienator88/ASUS-TUF-Z390M-Pro-Gaming-Hackintosh-OpenCore"
+    }
+
+]
