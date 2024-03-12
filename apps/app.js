@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('appslist.json')
+    fetch('../appslist.json')
       .then(response => response.json())
       .then(apps => {
         const appGrid = document.getElementById('appGrid');
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           // Make the item clickable and pass the ID to app.html
           item.addEventListener('click', () => {
-            window.location.href = `appInfo.html?id=${app.id}`;
+            window.location.href = `/appInfo?id=${app.id}`;
           });
         });
       })

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const appId = params.get('id'); // Get the ID from the URL
   
-    fetch('appslist.json')
+    fetch('../appslist.json')
       .then(response => response.json())
       .then(apps => {
         const app = apps.find(app => app.id.toString() === appId); // Find the app by ID

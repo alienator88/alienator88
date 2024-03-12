@@ -251,15 +251,48 @@ h1 {
 footer {
     text-align: center;
     padding: 20px;
+    width: 100%; /* Ensure footer takes full width */
+    box-sizing: border-box;
 }
 
 footer hr {
     margin-bottom: 20px;
-    border-color: #364051;
+    border-color: #3640516a;
+    width: 100%;
 }
 
 .social-links a {
-    margin: 0 10px;
+    display: inline-block; /* or 'block' with 'text-align: center' for its parent */
+    margin: auto;
     color: #364051;
     font-size: 1.5rem;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+  
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: auto;
+  background-color: #5d76e5;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 300;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; /* Positions the tooltip above the anchor tag */
+  left: 50%; /* Start at 50% of the parent element */
+  transform: translateX(-50%); /* Centers the tooltip */
+  margin-bottom: 5px;
+}
+  
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
