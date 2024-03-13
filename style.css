@@ -18,11 +18,24 @@ main {
     flex: 1; /* Allows the main content to grow and fill the available space */
 }
 
+.main-about {
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* This centers child elements like .app-detail horizontally */
+        flex: 1;
+    }
+}
+
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates 2 columns of equal width */
-    gap: 40px; /* Adjusts the gap between grid items */
-    margin-top: 20px; /* Space above the grid, adjust as needed */
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 1rem; 
+    margin-top: 20px; 
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    justify-items: center;
 }
 
 .column {
@@ -35,13 +48,14 @@ main {
     display: flex;
     align-items: center;
     background-color: #000210; /* Example background color */
-    padding: 20px; /* Increased padding between content and border */
+    padding: 20px;
     border: 1px solid #dddddd1c; /* Example border color */
     border-radius: 16px; /* Rounded corners */
-    gap: 20px; /* Space between the image and the text content */
+    gap: 5%; /* Space between the image and the text content */
     transition: box-shadow 0.5s ease-in-out; /* Smooth transition for the shadow effect */
-    width: 550px; /* Specific width */
-    height: 200px; /* Specific height */
+    /* width: 95%; */
+    height: 100%;
+    min-height: 200px;
     overflow: hidden; 
 }
 
@@ -127,6 +141,17 @@ nav ul li a {
     width: 100%; /* Ensures the profile section takes full width */
     flex-direction: column;
     padding-top: 10rem;
+    text-align: center;
+}
+
+.about-section {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically if needed */
+    width: 100%; /* Ensures the profile section takes full width */
+    flex-direction: column;
+    padding-top: 10rem;
+    text-align: center;
 }
 
 .apps-container {
@@ -161,7 +186,7 @@ h1 {
 
 .awesome {
     font-size: 2rem;
-    margin: 10px 0;
+    /* margin: 10px 0; */
 }
 
 @keyframes gradientAnimation {
@@ -295,4 +320,35 @@ footer hr {
   
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    /* .grid-container {
+        gap: 20px;
+    } */
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .grid-container {
+        grid-template-columns: 1fr; 
+        /* width: 90%; */
+        /* align-items: center; */
+        /* margin: 20px auto; */
+    }
+
+    .item {
+        width: 94.5%; 
+        height: auto; 
+        padding: 10px; 
+        gap: 10px; 
+    }    
+
 }
