@@ -29,7 +29,7 @@ main {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr; 
     grid-gap: 1rem; 
     margin-top: 20px; 
     margin-left: auto;
@@ -53,9 +53,8 @@ main {
     border-radius: 16px; /* Rounded corners */
     gap: 5%; /* Space between the image and the text content */
     transition: box-shadow 0.5s ease-in-out; /* Smooth transition for the shadow effect */
-    /* width: 95%; */
-    height: 100%;
-    min-height: 200px;
+    width: 600px;
+    height: 200px;
     overflow: hidden; 
 }
 
@@ -94,10 +93,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    z-index: 1000; /* High z-index to keep it above other content */
+    z-index: 1000;
     transition: background-color 0.5s ease;
-    backdrop-filter: blur(10px); /* Create the blur effect */
-    background-color: #0003178f; /* Translucent background; adjust as needed */
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: #00031796;
 }
 
 .logo {
@@ -108,9 +108,10 @@ header {
 
 .underline {
     text-decoration: underline;
-    text-decoration-color: #ab5dbb; 
-    text-decoration-thickness: 2px;
+    text-decoration-color: #ab5dbb !important; 
+    text-decoration-thickness: 4px !important;
     text-decoration-style: solid;
+    text-underline-offset: 8px !important;
 }
 
 nav ul {
@@ -211,6 +212,7 @@ h1 {
     display: flex;
     align-items: center; /* Adjust vertical alignment if needed */
     gap: 10px;
+    margin-top: 100px;
 }
 
 
@@ -324,28 +326,13 @@ footer hr {
 
 
 
-
-
-@media screen and (max-width: 1024px) {
-    /* .grid-container {
-        gap: 20px;
-    } */
-}
-
 @media screen and (max-width: 768px) {
     h1 {
-        font-size: 2rem;
-    }
-
-    .grid-container {
-        grid-template-columns: 1fr; 
-        /* width: 90%; */
-        /* align-items: center; */
-        /* margin: 20px auto; */
+        font-size: 2.5rem;
     }
 
     .item {
-        width: 94.5%; 
+        width: auto; 
         height: auto; 
         padding: 10px; 
         gap: 10px; 
