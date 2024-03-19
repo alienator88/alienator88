@@ -1,6 +1,6 @@
 [
     {
-      "id": 1,
+      "id": "pearcleaner",
       "title": "Pearcleaner",
       "description": "Open-source mac app cleaner inspired by Freemacsoft's AppCleaner and Sun Knudsen's Privacy Guides.",
       "image": "../Resources/pearIcon.png",
@@ -11,7 +11,7 @@
 
     },
     {
-      "id": 2,
+      "id": "sentinel",
       "title": "Sentinel",
       "description": "A GUI for controlling Gatekeeper, unquarantining apps and more.",
       "image": "../Resources/sentinelIcon.png",
@@ -22,7 +22,7 @@
 
     },
     {
-      "id": 3,
+      "id": "mcbrew",
       "title": "McBrew",
       "description": "A fast GUI for managing homebrew formulae, casks and taps.",
       "image": "../Resources/mcbrewIcon.png",
@@ -33,7 +33,7 @@
 
     },
     {
-      "id": 4,
+      "id": "hackintosh",
       "title": "Hackintosh",
       "description": "Asus TUF Z390M-Pro Gaming (Wifi) - OpenCore Configuration.",
       "image": "../Resources/hackintoshIcon.png",
