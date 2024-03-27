@@ -7,7 +7,8 @@
       "screenshot1": "../Resources/pear1.png",
       "screenshot2": "../Resources/pear2.png",
       "download_url": "https://github.com/alienator88/Pearcleaner/releases",
-      "repo_url": "https://github.com/alienator88/Pearcleaner"
+      "repo_url": "https://github.com/alienator88/Pearcleaner",
+      "brew": "brew install alienator88/homebrew-cask/pearcleaner"
 
     },
     {
@@ -18,7 +19,8 @@
       "screenshot1": "../Resources/sentinel1.png",
       "screenshot2": "../Resources/sentinel2.png",
       "download_url": "https://github.com/alienator88/Sentinel/releases",
-      "repo_url": "https://github.com/alienator88/Sentinel"
+      "repo_url": "https://github.com/alienator88/Sentinel",
+      "brew": "brew install alienator88/homebrew-cask/sentinel"
 
     },
     {

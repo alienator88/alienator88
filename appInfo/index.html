@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
 </head>
+
 <body>
     <header>
         <a href="/" class="logo">Alin Lupascu</a>
@@ -32,22 +34,36 @@
                 <a href="" class="button" id="download_url"><i class="fas fa-download"></i> Download</a>
                 <a href="" class="button" id="repo_url"><i class="fab fa-github"></i> Repo</a>
             </div>
-            <p></p>
+
+            <div class="snippet-wrapper">
+                <div class="code-snippet" id="brewContainer">
+                    <pre><code id="brew"></code></pre>
+                </div>
+                <span class="tooltip" onclick="copyToClipboard(); return false;">
+                    <i id="copy-btn" class="fas fa-clipboard"></i>
+                    <span class="tooltiptext">Copy to clipboard</span>
+                </span>
+            </div>
+
             <p></p>
             <img src="" id="screenshot1" class="screenshot">
             <img src="" id="screenshot2" class="screenshot">
-          </div>
-
-
         </div>
+
+
+    </div>
     <footer>
         <hr>
         <div class="social-links">
-            <a href="https://github.com/alienator88" class="tooltip"><i class="fab fa-github"><span class="tooltiptext">GitHub</span></i></a>
-            <a href="https://github.com/sponsors/alienator88" class="tooltip"><i class="fas fa-heart"><span class="tooltiptext">Sponsor</span></i></a>
-            <a href="mailto:dev@itsalin.com" class="tooltip"><i class="fas fa-envelope"><span class="tooltiptext">Email</span></i></a>
+            <a href="https://github.com/alienator88" class="tooltip"><i class="fab fa-github"><span
+                        class="tooltiptext">GitHub</span></i></a>
+            <a href="https://github.com/sponsors/alienator88" class="tooltip"><i class="fas fa-heart"><span
+                        class="tooltiptext">Sponsor</span></i></a>
+            <a href="mailto:dev@itsalin.com" class="tooltip"><i class="fas fa-envelope"><span
+                        class="tooltiptext">Email</span></i></a>
         </div>
     </footer>
 </body>
 <script src="appInfo.js"></script>
+
 </html>
