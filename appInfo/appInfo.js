@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('download_url').href = app.download_url;
         document.getElementById('repo_url').href = app.repo_url;
 
+        fetchLatestRelease(app.title).then(version => {
+          document.getElementById('appVersion').textContent = `Latest Version: ${version}`;
+        })
+        .catch(error => {
+          console.error(`Error fetching release version for ${app.title}:`, error);
+          const appVersionElement = document.getElementById('appVersion');
+          if (appVersionElement) {
+              appVersionElement.remove();
+          }
+      });
+
         if (app.brew) {
           document.getElementById('brew').textContent = app.brew;
         } else {
@@ -37,6 +48,23 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error('Error loading the apps data:', error));
 });
+
+
+function fetchLatestRelease(repoName) {
+  const url = `https://api.github.com/repos/alienator88/${repoName}/releases/latest`;
+  return fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => data.tag_name)
+    .catch(error => {
+      console.error('Error fetching the latest release:', error);
+      throw error;
+    });
+}
 
 
 function copyToClipboard() {
