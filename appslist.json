@@ -24,6 +24,18 @@
 
     },
     {
+      "id": "viz",
+      "title": "Viz",
+      "description": "A utility for capturing text from images, videos, qr/barcodes, etc.",
+      "image": "../Resources/vizIcon.png",
+      "screenshot1": "../Resources/text.mp4",
+      "screenshot2": "../Resources/qr-code.mp4",
+      "download_url": "https://github.com/alienator88/Viz/releases",
+      "repo_url": "https://github.com/alienator88/Viz",
+      "brew": "brew install alienator88/homebrew-cask/viz"
+
+    },
+    {
       "id": "mcbrew",
       "title": "McBrew",
       "description": "A fast GUI for managing homebrew formulae, casks and taps.",
