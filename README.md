@@ -3,8 +3,8 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=alienator88&label=Profile%20views&color=0e75b6&style=flat" alt="alienator88" /> </p>
 
-- 🔭 I’m working on [Pearcleaner](https://github.com/alienator88/Pearcleaner)
+- 🔭 I’m working on [Pearcleaner](https://github.com/alienator88/Pearcleaner) and [Viz](https://github.com/alienator88/Viz) at the moment
 
-- 🌱 I’m currently in the process of learning **SwiftUI** ☝🏻
+- 🌱 In the process of learning cool **SwiftUI** tricks ☝🏻
 
-- 👨‍💻 My portfolio is available at [https://itsalin.com/](https://itsalin.com/)
+- 👨‍💻 My site: [https://itsalin.com/](https://itsalin.com/)
