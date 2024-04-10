@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   const params = new URLSearchParams(window.location.search);
-  const appId = params.get('id'); // Get the ID from the URL
+  const appId = params.get('id');
 
   fetch('../appslist.json')
     .then(response => response.json())
@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
           if (appVersionElement) {
               appVersionElement.remove();
           }
+      });
+
+      getTotalDownloads('alienator88', appId).then(totalDownloads => {
+        document.getElementById('appDownloads').textContent = `Total Downloads: ${totalDownloads}`
       });
 
         if (app.brew) {
@@ -72,7 +76,25 @@ function fetchLatestRelease(repoName) {
     });
 }
 
+async function getTotalDownloads(repoOwner, repoName) {
+  const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases`;
+  try {
+    const response = await fetch(apiUrl);
+    const releases = await response.json();
+    let totalDownloads = 0;
 
+    releases.forEach(release => {
+      release.assets.forEach(asset => {
+        totalDownloads += asset.download_count;
+      });
+    });
+
+    return totalDownloads.toLocaleString();
+  } catch (error) {
+    console.error('Error fetching release data:', error);
+    return 0;  // Return 0 in case of an error
+  }
+}
 
 function copyToClipboard() {
   // Create a temporary textarea element

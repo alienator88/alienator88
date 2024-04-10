@@ -8,8 +8,8 @@
       "screenshot2": "../Resources/pear2.png",
       "download_url": "https://github.com/alienator88/Pearcleaner/releases",
       "repo_url": "https://github.com/alienator88/Pearcleaner",
-      "brew": "brew install alienator88/homebrew-cask/pearcleaner"
-
+      "brew": "brew install alienator88/homebrew-cask/pearcleaner",
+      "badges": "free,macos,popular"
     },
     {
       "id": "sentinel",
@@ -20,8 +20,8 @@
       "screenshot2": "../Resources/sentinel2.png",
       "download_url": "https://github.com/alienator88/Sentinel/releases",
       "repo_url": "https://github.com/alienator88/Sentinel",
-      "brew": "brew install alienator88/homebrew-cask/sentinel"
-
+      "brew": "brew install alienator88/homebrew-cask/sentinel",
+      "badges": "free,macos"
     },
     {
       "id": "viz",
@@ -33,8 +33,8 @@
       "video1": "../Resources/text.mp4",
       "download_url": "https://github.com/alienator88/Viz/releases",
       "repo_url": "https://github.com/alienator88/Viz",
-      "brew": "brew install alienator88/homebrew-cask/viz"
-
+      "brew": "brew install alienator88/homebrew-cask/viz",
+      "badges": "free,macos,new"
     },
     {
       "id": "mcbrew",
@@ -44,18 +44,9 @@
       "screenshot1": "../Resources/mcbrew1.png",
       "screenshot2": "../Resources/mcbrew2.png",
       "download_url": "https://github.com/alienator88/McBrew/releases",
-      "repo_url": "https://github.com/alienator88/McBrew"
-
-    },
-    {
-      "id": "hackintosh",
-      "title": "Hackintosh",
-      "description": "Asus TUF Z390M-Pro Gaming (Wifi) - OpenCore Configuration.",
-      "image": "../Resources/hackintoshIcon.png",
-      "screenshot1": "../Resources/hackintosh1.png",
-      "screenshot2": "",
-      "download_url": "https://github.com/alienator88/ASUS-TUF-Z390M-Pro-Gaming-Hackintosh-OpenCore/releases",
-      "repo_url": "https://github.com/alienator88/ASUS-TUF-Z390M-Pro-Gaming-Hackintosh-OpenCore"
+      "repo_url": "https://github.com/alienator88/McBrew",
+      "brew": "brew install alienator88/homebrew-cask/mcbrew",
+      "badges": "free,macos"
     }
 
 ]

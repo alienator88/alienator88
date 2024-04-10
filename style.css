@@ -116,6 +116,7 @@ header {
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     background-color: #00031796;
+    /* background-color: #f10d0dda; */
 }
 
 .logo {
@@ -123,6 +124,7 @@ header {
     text-decoration: none;
     color: white;
     margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .underline {
@@ -139,6 +141,7 @@ nav ul {
     display: flex;
     margin: 0;
     margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 nav ul li {
@@ -201,14 +204,23 @@ nav ul li a {
 
 h1 {
     font-size: 3.5rem;
-    background: linear-gradient(45deg, #5d76e5, #ab5dbb, #5d76e5);
-    background-size: 200% 200%;
-    /* Extend the background to allow for the movement */
+    background: linear-gradient(to left, rgb(74, 0, 139), #5d76e5, #ab5dbb, #5d76e5);
+    background-size: 500%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientAnimation 5s ease-in-out infinite;
-    /* Apply the animation */
+    margin: 10px 0;
+    margin-bottom: 10px;
+}
+
+.gradient-animation {
+    background: linear-gradient(to left, rgb(74, 0, 139), #5d76e5, #ab5dbb, #5d76e5);
+    background-size: 500%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 5s ease-in-out infinite;
     margin: 10px 0;
     margin-bottom: 10px;
 }
@@ -220,17 +232,34 @@ h1 {
 
 @keyframes gradientAnimation {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 100%;
     }
 
     50% {
-        background-position: 100% 50%;
+        background-position: 100% 0%;
     }
 
     100% {
-        background-position: 0% 50%;
+        background-position: 0% 100%;
     }
 }
+
+.badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    opacity: 80%;
+  }
+  
+  .badge {
+    display: inline-block;
+    background-color: transparent;
+    /* background-color: #5d76e5; */
+    padding: 6px 10px;
+    border: 2px solid #ffffff80;
+    border-radius: 15px;
+    font-size: 10px;
+  }
 
 .role {
     color: #828fa5;
@@ -361,7 +390,7 @@ h1 {
     border-radius: 8px;
 }
 
-#appVersion {
+#appVersion, #appDownloads {
     color: #ffffff9b;
 }
 
@@ -465,7 +494,7 @@ footer hr {
         font-size: large;
     }
 
-    #appVersion {
+    #appVersion, #appDownloads {
         max-width: 80%;
         word-wrap: break-word;
         overflow-wrap: break-word;
