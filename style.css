@@ -30,7 +30,6 @@ main {
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* This centers child elements like .app-detail horizontally */
         flex: 1;
     }
 }
@@ -100,9 +99,7 @@ main {
 
 .item-description {
     font-size: 0.9em;
-    /* Smaller text for the description */
     color: #666;
-    /* Example color for the description text */
 }
 
 header {
@@ -113,7 +110,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding-top: 20px;
     z-index: 1000;
     transition: background-color 0.5s ease;
     -webkit-backdrop-filter: blur(20px);
@@ -125,6 +122,7 @@ header {
     font-size: 1rem;
     text-decoration: none;
     color: white;
+    margin-left: 20px;
 }
 
 .underline {
@@ -141,12 +139,10 @@ nav ul {
     display: flex;
     margin: 0;
     margin-right: 20px;
-    /* align-items: center; */
 }
 
 nav ul li {
-    margin: 10px;
-    margin-right: 20px;
+    margin-left: 20px;
 }
 
 nav ul li a {
@@ -451,6 +447,40 @@ footer hr {
         height: auto;
         padding: 10px;
         gap: 10px;
+    }
+
+    .app-detail {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .logo, nav {
+        font-size: small;
+    }
+
+    #appTitle {
+        max-width: 80%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        font-size: large;
+    }
+
+    #appVersion {
+        max-width: 80%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        font-size: smaller;
+    }
+
+    #appDescription {
+        max-width: 80%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        font-size: small;
+    }
+
+    .snippet-wrapper {
+        display: none;
     }
 
 }

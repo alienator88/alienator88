@@ -32,8 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('brewContainer').remove();
         }
 
-        // loadMedia('screenshot1', app.screenshot1);
-        // loadMedia('screenshot2', app.screenshot2);
         if (app.screenshot1) {
           document.getElementById('screenshot1').src = app.screenshot1;
         } else {
@@ -50,15 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('video1').src = app.video1;
         } else {
           document.getElementById('video1').remove();
-        }
-
-        if (app.video2) {
-          document.getElementById('video2').src = app.video2;
-        } else {
-          document.getElementById('video2').remove();
-        }
-
-        
+        }        
 
       }
     })
