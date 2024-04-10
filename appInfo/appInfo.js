@@ -32,19 +32,33 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('brewContainer').remove();
         }
 
-        loadMedia('screenshot1', app.screenshot1);
-        loadMedia('screenshot2', app.screenshot2);
-        // if (app.screenshot1) {
-        //   document.getElementById('screenshot1').src = app.screenshot1;
-        // } else {
-        //   document.getElementById('screenshot1').remove();
-        // }
+        // loadMedia('screenshot1', app.screenshot1);
+        // loadMedia('screenshot2', app.screenshot2);
+        if (app.screenshot1) {
+          document.getElementById('screenshot1').src = app.screenshot1;
+        } else {
+          document.getElementById('screenshot1').remove();
+        }
 
-        // if (app.screenshot2) {
-        //   document.getElementById('screenshot2').src = app.screenshot2;
-        // } else {
-        //   document.getElementById('screenshot2').remove();
-        // }
+        if (app.screenshot2) {
+          document.getElementById('screenshot2').src = app.screenshot2;
+        } else {
+          document.getElementById('screenshot2').remove();
+        }
+
+        if (app.video1) {
+          document.getElementById('video1').src = app.video1;
+        } else {
+          document.getElementById('video1').remove();
+        }
+
+        if (app.video2) {
+          document.getElementById('video2').src = app.video2;
+        } else {
+          document.getElementById('video2').remove();
+        }
+
+        
 
       }
     })
@@ -66,45 +80,6 @@ function fetchLatestRelease(repoName) {
       console.error('Error fetching the latest release:', error);
       throw error;
     });
-}
-
-
-function loadMedia(elementId, mediaSource) {
-  const container = document.getElementById(elementId).parentNode;
-  const currentElement = document.getElementById(elementId);
-
-  // Determine if the source is a video
-  const isVideo = mediaSource.endsWith('.mp4') || mediaSource.endsWith('.webm'); // Extend with other formats as needed
-
-  if (isVideo) {
-    let videoElement;
-    if (currentElement.tagName === 'IMG') {
-      // Create a video element if the current is an img
-      videoElement = document.createElement('video');
-      videoElement.id = elementId;
-      videoElement.className = 'screenshot'; // Maintain the same class for styling
-      videoElement.controls = true;
-      container.replaceChild(videoElement, currentElement);
-    } else if (currentElement.tagName === 'VIDEO') {
-      videoElement = currentElement; // Use existing video element
-    }
-    
-    videoElement.src = mediaSource;
-    videoElement.load(); // Important to reload the video element with the new source
-  } else {
-    // If it's not a video, ensure it's an img element
-    let imgElement;
-    if (currentElement.tagName === 'VIDEO') {
-      imgElement = document.createElement('img');
-      imgElement.id = elementId;
-      imgElement.className = 'screenshot';
-      container.replaceChild(imgElement, currentElement);
-    } else if (currentElement.tagName === 'IMG') {
-      imgElement = currentElement; // Use existing img element
-    }
-
-    imgElement.src = mediaSource;
-  }
 }
 
 

@@ -28,8 +28,10 @@
       "title": "Viz",
       "description": "A utility for capturing text from images, videos, qr/barcodes, etc.",
       "image": "../Resources/vizIcon.png",
-      "screenshot1": "../Resources/text.mp4",
-      "screenshot2": "../Resources/qr-code.mp4",
+      "screenshot1": "../Resources/vizScreenshot.png",
+      "screenshot2": "",
+      "video1": "../Resources/text.mp4",
+      "video2": "../Resources/code.mp4",
       "download_url": "https://github.com/alienator88/Viz/releases",
       "repo_url": "https://github.com/alienator88/Viz",
       "brew": "brew install alienator88/homebrew-cask/viz"
