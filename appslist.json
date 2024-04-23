@@ -2,7 +2,7 @@
     {
       "id": "pearcleaner",
       "title": "Pearcleaner",
-      "description": "Open-source mac app cleaner inspired by Freemacsoft's AppCleaner and Sun Knudsen's Privacy Guides.",
+      "description": "Source-available mac app cleaner inspired by Freemacsoft's AppCleaner and Sun Knudsen's Privacy Guides.",
       "image": "../Resources/pearIcon.png",
       "screenshot1": "../Resources/pear1.png",
       "screenshot2": "../Resources/pear2.png",
