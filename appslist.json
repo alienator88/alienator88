@@ -35,18 +35,6 @@
       "repo_url": "https://github.com/alienator88/Viz",
       "brew": "brew install alienator88/homebrew-cask/viz",
       "badges": "free,macos,new"
-    },
-    {
-      "id": "mcbrew",
-      "title": "McBrew",
-      "description": "A fast GUI for managing homebrew formulae, casks and taps.",
-      "image": "../Resources/mcbrewIcon.png",
-      "screenshot1": "../Resources/mcbrew1.png",
-      "screenshot2": "../Resources/mcbrew2.png",
-      "download_url": "https://github.com/alienator88/McBrew/releases",
-      "repo_url": "https://github.com/alienator88/McBrew",
-      "brew": "brew install alienator88/homebrew-cask/mcbrew",
-      "badges": "free,macos"
     }
 
 ]
