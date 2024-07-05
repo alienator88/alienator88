@@ -8,7 +8,7 @@
       "screenshot2": "../Resources/pear2.png",
       "download_url": "https://github.com/alienator88/Pearcleaner/releases",
       "repo_url": "https://github.com/alienator88/Pearcleaner",
-      "brew": "brew install alienator88/homebrew-cask/pearcleaner --no-quarantine",
+      "brew": "brew install alienator88/homebrew-cask/pearcleaner",
       "badges": "free,macos,popular"
     },
     {
@@ -20,7 +20,7 @@
       "screenshot2": "../Resources/sentinel2.png",
       "download_url": "https://github.com/alienator88/Sentinel/releases",
       "repo_url": "https://github.com/alienator88/Sentinel",
-      "brew": "brew install alienator88/homebrew-cask/sentinel-app --no-quarantine",
+      "brew": "brew install alienator88/homebrew-cask/sentinel-app",
       "badges": "free,macos"
     },
     {
@@ -33,7 +33,7 @@
       "video1": "../Resources/text.mp4",
       "download_url": "https://github.com/alienator88/Viz/releases",
       "repo_url": "https://github.com/alienator88/Viz",
-      "brew": "brew install alienator88/homebrew-cask/viz --no-quarantine",
+      "brew": "brew install alienator88/homebrew-cask/viz",
       "badges": "free,macos,new"
     }
 
