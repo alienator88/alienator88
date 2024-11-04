@@ -33,7 +33,7 @@
       "video1": "../Resources/text.mp4",
       "download_url": "https://github.com/alienator88/Viz/releases",
       "repo_url": "https://github.com/alienator88/Viz",
-      "brew": "brew install alienator88/homebrew-cask/viz",
+      "brew": "brew install viz",
       "badges": "free,macos,new"
     }
 
