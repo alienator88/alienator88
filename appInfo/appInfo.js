@@ -48,12 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
           document.getElementById('screenshot2').remove();
         }
 
-        if (app.video1) {
-          document.getElementById('video1').src = app.video1;
-        } else {
-          document.getElementById('video1').remove();
-        }        
-
       }
     })
     .catch(error => console.error('Error loading the apps data:', error));
