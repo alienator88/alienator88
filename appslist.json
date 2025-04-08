@@ -21,7 +21,7 @@
       "download_url": "https://github.com/alienator88/Viz/releases",
       "repo_url": "https://github.com/alienator88/Viz",
       "brew": "brew install viz",
-      "badges": "free,macos,new"
+      "badges": "free,macos"
     },
     {
       "id": "sentinel",
@@ -43,7 +43,7 @@
       "screenshot1": "../Resources/pearHIDScreenshot.png",
       "download_url": "https://github.com/alienator88/PearHID/releases",
       "repo_url": "https://github.com/alienator88/PearHID",
-      "brew": "coming soon",
+      "brew": "brew install coming soon",
       "badges": "free,macos,new"
     }
     
