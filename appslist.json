@@ -12,6 +12,18 @@
       "badges": "free,macos,popular"
     },
     {
+      "id": "viz",
+      "title": "Viz",
+      "description": "A utility for capturing text from images, videos, qr/barcodes, etc.",
+      "image": "../Resources/vizIcon.png",
+      "screenshot1": "../Resources/vizScreenshot.png",
+      "screenshot2": "../Resources/vizHistory.png",
+      "download_url": "https://github.com/alienator88/Viz/releases",
+      "repo_url": "https://github.com/alienator88/Viz",
+      "brew": "brew install viz",
+      "badges": "free,macos,new"
+    },
+    {
       "id": "sentinel",
       "title": "Sentinel",
       "description": "A GUI for controlling Gatekeeper, unquarantining apps and more.",
@@ -24,16 +36,16 @@
       "badges": "free,macos"
     },
     {
-      "id": "viz",
-      "title": "Viz",
-      "description": "A utility for capturing text from images, videos, qr/barcodes, etc.",
-      "image": "../Resources/vizIcon.png",
-      "screenshot1": "../Resources/vizScreenshot.png",
-      "screenshot2": "../Resources/vizHistory.png",
-      "download_url": "https://github.com/alienator88/Viz/releases",
-      "repo_url": "https://github.com/alienator88/Viz",
-      "brew": "brew install viz",
+      "id": "pearhid",
+      "title": "PearHID",
+      "description": "Remap your macOS keyboard with a simple SwiftUI frontend",
+      "image": "../Resources/pearHIDIcon.png",
+      "screenshot1": "../Resources/pearHIDScreenshot.png",
+      "download_url": "https://github.com/alienator88/PearHID/releases",
+      "repo_url": "https://github.com/alienator88/PearHID",
+      "brew": "coming soon",
       "badges": "free,macos,new"
     }
+    
 
 ]
