@@ -14,7 +14,7 @@
     {
       "id": "viz",
       "title": "Viz",
-      "description": "A utility for capturing text from images, videos, qr/barcodes, etc.",
+      "description": "A utility for capturing text from images, videos, qr/barcodes and colors.",
       "image": "../Resources/vizIcon.png",
       "screenshot1": "../Resources/vizScreenshot.png",
       "screenshot2": "../Resources/vizHistory.png",
