@@ -32,7 +32,7 @@
       "screenshot2": "../Resources/sentinel2.png",
       "download_url": "https://github.com/alienator88/Sentinel/releases",
       "repo_url": "https://github.com/alienator88/Sentinel",
-      "brew": "brew install alienator88/homebrew-cask/sentinel-app",
+      "brew": "brew install sentinel-gk",
       "badges": "free,macos"
     },
     {
@@ -43,7 +43,7 @@
       "screenshot1": "../Resources/pearHIDScreenshot.png",
       "download_url": "https://github.com/alienator88/PearHID/releases",
       "repo_url": "https://github.com/alienator88/PearHID",
-      "brew": "brew install coming soon",
+      "brew": "brew not yet available",
       "badges": "free,macos,new"
     }
     
