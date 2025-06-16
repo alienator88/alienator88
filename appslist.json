@@ -32,7 +32,7 @@
       "screenshot2": "../Resources/sentinel2.png",
       "download_url": "https://github.com/alienator88/Sentinel/releases",
       "repo_url": "https://github.com/alienator88/Sentinel",
-      "brew": "brew install sentinel-gk",
+      "brew": "brew install alienator88-sentinel",
       "badges": "free,macos"
     },
     {
