@@ -4,69 +4,217 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Apps - Alin Lupascu</title>
-        <link rel="stylesheet" href="../style.css" />
-        <link rel="stylesheet" href="../basscss.min.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            system: [
+                                "-apple-system",
+                                "BlinkMacSystemFont",
+                                "Segoe UI",
+                                "Roboto",
+                                "Helvetica",
+                                "Arial",
+                                "sans-serif",
+                            ],
+                        },
+                        backgroundImage: {
+                            "gradient-apple":
+                                "linear-gradient(to left, rgb(74, 0, 139), #5d76e5, #ab5dbb, #5d76e5)",
+                        },
+                        animation: {
+                            "gradient-shift":
+                                "gradientAnimation 5s ease-in-out infinite",
+                            "fade-in": "fadeIn 0.5s ease-in-out",
+                            "slide-up": "slideUp 0.3s ease-out",
+                        },
+                        keyframes: {
+                            gradientAnimation: {
+                                "0%": { "background-position": "0% 100%" },
+                                "50%": { "background-position": "100% 0%" },
+                                "100%": { "background-position": "0% 100%" },
+                            },
+                            fadeIn: {
+                                "0%": { opacity: "0" },
+                                "100%": { opacity: "1" },
+                            },
+                            slideUp: {
+                                "0%": {
+                                    transform: "translateY(10px)",
+                                    opacity: "0",
+                                },
+                                "100%": {
+                                    transform: "translateY(0)",
+                                    opacity: "1",
+                                },
+                            },
+                        },
+                    },
+                },
+            };
+        </script>
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         />
         <link
             rel="icon"
             href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
         />
+        <style>
+            .gradient-text {
+                background: linear-gradient(
+                    to left,
+                    rgb(74, 0, 139),
+                    #5d76e5,
+                    #ab5dbb,
+                    #5d76e5
+                );
+                background-size: 500%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradientAnimation 5s ease-in-out infinite;
+            }
+            @keyframes gradientAnimation {
+                0% {
+                    background-position: 0% 100%;
+                }
+                50% {
+                    background-position: 100% 0%;
+                }
+                100% {
+                    background-position: 0% 100%;
+                }
+            }
+            .app-card {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .app-card:hover {
+                transform: translateY(-4px);
+            }
+        </style>
     </head>
-
-    <body>
-        <header>
-            <a href="/" class="logo"
-                ><i
-                    class="fas fa-angle-double-left"
-                    style="margin-right: 5px"
-                ></i
-                >Alin Lupascu</a
+    <body
+        class="min-h-screen font-system bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-black text-gray-900 dark:text-white transition-colors duration-500"
+    >
+        <!-- Header -->
+        <header
+            class="fixed top-0 left-0 w-full z-40 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-b border-gray-200/50 dark:border-gray-700/50 transition-all duration-300"
+        >
+            <div
+                class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center"
             >
-            <nav>
-                <ul>
-                    <li><a href="/apps" class="underline">Apps</a></li>
-                    <li><a href="/about">About</a></li>
-                </ul>
-            </nav>
+                <a
+                    href="/"
+                    class="flex items-center space-x-3 text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                    <i class="fas fa-arrow-left text-sm"></i>
+                    <span class="font-medium">Alin Lupascu</span>
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a
+                        href="/apps"
+                        class="text-blue-600 dark:text-blue-400 font-medium border-b-2 border-blue-600 dark:border-blue-400 pb-1"
+                        >Apps</a
+                    >
+                    <a
+                        href="/about"
+                        class="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 font-medium"
+                        >About</a
+                    >
+                </nav>
+                <!-- Mobile menu button -->
+                <button
+                    class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                >
+                    <i class="fas fa-bars text-gray-600 dark:text-gray-300"></i>
+                </button>
+            </div>
         </header>
 
-        <div class="clearfix">
-            <div class="col px2 mx-auto">
-                <div class="grid-container" id="appGrid">
-                    <div class="apps-title-container">
-                        <span class="awesome">..</span>
-                        <h1>apps</h1>
+        <!-- Main Content -->
+        <main class="pt-24 pb-16 px-6">
+            <div class="max-w-7xl mx-auto">
+                <!-- Page Title -->
+                <div class="text-center mb-16 animate-fade-in">
+                    <div
+                        class="flex items-center justify-center space-x-4 mb-6"
+                    >
+                        <span class="text-4xl">💻</span>
+                        <h1
+                            class="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text"
+                        >
+                            Apps
+                        </h1>
+                    </div>
+                    <p
+                        class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto"
+                    >
+                        Discover my collection of open-source macOS utilities
+                        designed to enhance your workflow
+                    </p>
+                </div>
+
+                <!-- Apps Grid -->
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto"
+                    id="appGrid"
+                >
+                    <!-- Apps will be loaded here by JavaScript -->
+                </div>
+
+                <!-- Loading State -->
+                <div id="loading" class="text-center py-16">
+                    <div class="inline-flex items-center space-x-3">
+                        <div
+                            class="animate-spin rounded-full h-8 w-8 border-2 border-blue-600 border-t-transparent"
+                        ></div>
+                        <span class="text-gray-600 dark:text-gray-400"
+                            >Loading apps...</span
+                        >
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
-        <footer>
-            <hr />
-            <div class="social-links">
-                <a href="https://github.com/alienator88" class="tooltip"
-                    ><i class="fab fa-github"
-                        ><span class="tooltiptext">GitHub</span></i
-                    ></a
-                >
-                <a
-                    href="https://github.com/sponsors/alienator88"
-                    class="tooltip"
-                    ><i class="fas fa-heart"
-                        ><span class="tooltiptext">Sponsor</span></i
-                    ></a
-                >
-                <!-- <a href="mailto:dev@itsalin.com" class="tooltip"><i class="fas fa-envelope"><span
-                        class="tooltiptext">Email</span></i></a> -->
+        <!-- Footer -->
+        <footer
+            class="relative z-10 w-full py-8 border-t border-gray-200 dark:border-gray-700"
+        >
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex justify-center space-x-6">
+                    <a
+                        href="https://github.com/alienator88"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group relative p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 transform hover:scale-110"
+                        title="GitHub"
+                    >
+                        <i
+                            class="fab fa-github text-xl text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-200"
+                        ></i>
+                    </a>
+                    <a
+                        href="https://github.com/sponsors/alienator88"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group relative p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-red-100 dark:hover:bg-red-900/30 transition-all duration-300 transform hover:scale-110"
+                        title="Sponsor"
+                    >
+                        <i
+                            class="fas fa-heart text-xl text-gray-600 dark:text-gray-300 group-hover:text-red-500 transition-colors duration-200"
+                        ></i>
+                    </a>
+                </div>
             </div>
         </footer>
+
+        <!-- Theme Toggle Script -->
+        <script src="../theme.js"></script>
+        <script src="app.js"></script>
     </body>
-    <script src="app.js"></script>
 </html>

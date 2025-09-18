@@ -1,71 +1,162 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(window.location.search);
-  const appId = params.get('id');
+  const appId = params.get("id");
+  const loading = document.getElementById("loading");
+  const appContent = document.getElementById("appContent");
 
-  fetch('../appslist.json')
-    .then(response => response.json())
-    .then(apps => {
-      const app = apps.find(app => app.id.toString() === appId); // Find the app by ID
-      if (app) {
-        // Update the page with the app's details
-        document.title = app.title + " - Alin Lupascu"
-        document.getElementById('appImage').src = app.image;
-        document.getElementById('appTitle').textContent = app.title;
-        document.getElementById('appDescription').textContent = app.description;
-        document.getElementById('download_url').href = app.download_url;
-        document.getElementById('repo_url').href = app.repo_url;
+  if (!appId) {
+    showError("No app ID provided");
+    return;
+  }
 
-        fetchLatestRelease(app.title).then(version => {
-          document.getElementById('appVersion').textContent = `Latest Version: ${version}`;
-        })
-        .catch(error => {
-          console.error(`Error fetching release version for ${app.title}:`, error);
-          const appVersionElement = document.getElementById('appVersion');
-          if (appVersionElement) {
-              appVersionElement.remove();
-          }
-      });
-
-      getTotalDownloads('alienator88', appId).then(totalDownloads => {
-        document.getElementById('appDownloads').textContent = `Total Downloads: ${totalDownloads}`
-      });
-
-        if (app.brew) {
-          document.getElementById('brew').textContent = app.brew;
-        } else {
-          document.getElementById('brewContainer').remove();
-        }
-
-        if (app.screenshot1) {
-          document.getElementById('screenshot1').src = app.screenshot1;
-        } else {
-          document.getElementById('screenshot1').remove();
-        }
-
-        if (app.screenshot2) {
-          document.getElementById('screenshot2').src = app.screenshot2;
-        } else {
-          document.getElementById('screenshot2').remove();
-        }
-
+  fetch("../appslist.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch app data");
       }
+      return response.json();
     })
-    .catch(error => console.error('Error loading the apps data:', error));
+    .then((apps) => {
+      const app = apps.find((app) => app.id.toString() === appId);
+      if (!app) {
+        showError("App not found");
+        return;
+      }
+
+      populateAppData(app);
+
+      // Hide loading and show content
+      setTimeout(() => {
+        loading.style.display = "none";
+        appContent.style.opacity = "1";
+      }, 500);
+    })
+    .catch((error) => {
+      console.error("Error loading app data:", error);
+      showError("Failed to load app information");
+    });
 });
 
+function populateAppData(app) {
+  // Update page title and meta
+  document.title = `${app.title} - Alin Lupascu`;
+
+  // Populate basic app info
+  const elements = {
+    appImage: app.image,
+    appTitle: app.title,
+    appDescription: app.description,
+  };
+
+  Object.entries(elements).forEach(([id, value]) => {
+    const element = document.getElementById(id);
+    if (element) {
+      if (id === "appImage") {
+        element.src = value;
+        element.alt = `${app.title} Icon`;
+      } else {
+        element.textContent = value;
+      }
+    }
+  });
+
+  // Set up download and repo links
+  const downloadBtn = document.getElementById("download_url");
+  const repoBtn = document.getElementById("repo_url");
+
+  if (downloadBtn && app.download_url) {
+    downloadBtn.href = app.download_url;
+  }
+
+  if (repoBtn && app.repo_url) {
+    repoBtn.href = app.repo_url;
+  }
+
+  // Handle Homebrew installation
+  setupHomebrewSection(app);
+
+  // Handle screenshots
+  setupScreenshots(app);
+
+  // Fetch dynamic data
+  fetchAppMetadata(app);
+}
+
+function setupHomebrewSection(app) {
+  const brewContainer = document.getElementById("brewContainer");
+  const brewCode = document.getElementById("brew");
+
+  if (app.brew && brewCode) {
+    brewCode.textContent = app.brew;
+  } else if (brewContainer) {
+    brewContainer.style.display = "none";
+  }
+}
+
+function setupScreenshots(app) {
+  const screenshots = ["screenshot1", "screenshot2"];
+
+  screenshots.forEach((screenshotId) => {
+    const img = document.getElementById(screenshotId);
+    const container = document.getElementById(`${screenshotId}Container`);
+
+    if (app[screenshotId] && img) {
+      img.src = app[screenshotId];
+      img.alt = `${app.title} Screenshot`;
+    } else if (container) {
+      container.style.display = "none";
+    }
+  });
+}
+
+function fetchAppMetadata(app) {
+  // Fetch latest release version
+  fetchLatestRelease(app.title)
+    .then((version) => {
+      const versionElement = document.getElementById("appVersion");
+      if (versionElement) {
+        versionElement.innerHTML = `<i class="fas fa-tag mr-2"></i>Latest: ${version}`;
+        versionElement.classList.add("animate-fade-in");
+      }
+    })
+    .catch((error) => {
+      console.error(`Error fetching release version for ${app.title}:`, error);
+      const versionElement = document.getElementById("appVersion");
+      if (versionElement) {
+        versionElement.style.display = "none";
+      }
+    });
+
+  // Fetch download counts
+  getTotalDownloads("alienator88", app.id)
+    .then((totalDownloads) => {
+      const downloadsElement = document.getElementById("appDownloads");
+      if (downloadsElement) {
+        downloadsElement.innerHTML = `<i class="fas fa-download mr-2"></i>Downloads: ${totalDownloads}`;
+        downloadsElement.classList.add("animate-fade-in");
+      }
+    })
+    .catch((error) => {
+      console.error(`Error fetching downloads for ${app.title}:`, error);
+      const downloadsElement = document.getElementById("appDownloads");
+      if (downloadsElement) {
+        downloadsElement.style.display = "none";
+      }
+    });
+}
 
 function fetchLatestRelease(repoName) {
   const url = `https://api.github.com/repos/alienator88/${repoName}/releases/latest`;
   return fetch(url)
-    .then(response => {
+    .then((response) => {
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
       return response.json();
     })
-    .then(data => data.tag_name)
-    .catch(error => {
-      console.error('Error fetching the latest release:', error);
+    .then((data) => data.tag_name)
+    .catch((error) => {
+      console.error("Error fetching the latest release:", error);
       throw error;
     });
 }
@@ -74,44 +165,116 @@ async function getTotalDownloads(repoOwner, repoName) {
   const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/releases`;
   try {
     const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const releases = await response.json();
     let totalDownloads = 0;
 
-    releases.forEach(release => {
-      release.assets.forEach(asset => {
+    releases.forEach((release) => {
+      release.assets.forEach((asset) => {
         totalDownloads += asset.download_count;
       });
     });
 
     return totalDownloads.toLocaleString();
   } catch (error) {
-    console.error('Error fetching release data:', error);
-    return 0;  // Return 0 in case of an error
+    console.error("Error fetching release data:", error);
+    throw error;
   }
 }
 
 function copyToClipboard() {
-  // Create a temporary textarea element
-  const textarea = document.createElement('textarea');
-  // Set its value to the code you want to copy
-  textarea.value = document.querySelector('.code-snippet code').innerText;
-  // Append it to the body
+  const codeElement = document.querySelector("#brew");
+  if (!codeElement) return;
+
+  // Use modern clipboard API if available
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard
+      .writeText(codeElement.textContent)
+      .then(() => showCopySuccess())
+      .catch(() => fallbackCopyToClipboard(codeElement.textContent));
+  } else {
+    fallbackCopyToClipboard(codeElement.textContent);
+  }
+}
+
+function fallbackCopyToClipboard(text) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.style.position = "fixed";
+  textarea.style.opacity = "0";
   document.body.appendChild(textarea);
-  // Select its content
   textarea.select();
-  // Copy the content
-  document.execCommand('copy');
-  // Remove the textarea element from the body
+
+  try {
+    document.execCommand("copy");
+    showCopySuccess();
+  } catch (err) {
+    console.error("Fallback copy failed:", err);
+    showCopyError();
+  }
+
   document.body.removeChild(textarea);
-  
-  // Find the element that needs its class changed
-  const copyBtn = document.getElementById('copy-btn');
-  
-  // Change the class to 'fas fa-check'
-  copyBtn.className = 'fas fa-check';
-  
-  // Set a timeout to change the class back to 'fas fa-copy' after 2 seconds
+}
+
+function showCopySuccess() {
+  const copyBtn = document.getElementById("copy-btn");
+  if (!copyBtn) return;
+
+  const icon = copyBtn.querySelector("i");
+  const originalClass = icon.className;
+
+  // Change to check icon
+  icon.className = "fas fa-check text-green-500";
+  copyBtn.classList.add("bg-green-100", "dark:bg-green-900/30");
+  copyBtn.classList.remove("bg-gray-100", "dark:bg-gray-700");
+
+  // Revert after 2 seconds
   setTimeout(() => {
-    copyBtn.className = 'fas fa-clipboard';
+    icon.className = originalClass;
+    copyBtn.classList.remove("bg-green-100", "dark:bg-green-900/30");
+    copyBtn.classList.add("bg-gray-100", "dark:bg-gray-700");
   }, 2000);
+}
+
+function showCopyError() {
+  const copyBtn = document.getElementById("copy-btn");
+  if (!copyBtn) return;
+
+  const icon = copyBtn.querySelector("i");
+  const originalClass = icon.className;
+
+  // Change to error icon
+  icon.className = "fas fa-exclamation-triangle text-red-500";
+  copyBtn.classList.add("bg-red-100", "dark:bg-red-900/30");
+  copyBtn.classList.remove("bg-gray-100", "dark:bg-gray-700");
+
+  // Revert after 2 seconds
+  setTimeout(() => {
+    icon.className = originalClass;
+    copyBtn.classList.remove("bg-red-100", "dark:bg-red-900/30");
+    copyBtn.classList.add("bg-gray-100", "dark:bg-gray-700");
+  }, 2000);
+}
+
+function showError(message) {
+  const loading = document.getElementById("loading");
+  if (loading) {
+    loading.innerHTML = `
+      <div class="text-center space-y-4">
+        <div class="text-red-500 dark:text-red-400 mb-4">
+          <i class="fas fa-exclamation-triangle text-3xl"></i>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400 font-medium">${message}</p>
+        <button
+          onclick="window.history.back()"
+          class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors duration-200 font-medium"
+        >
+          Go Back
+        </button>
+      </div>
+    `;
+  }
 }
